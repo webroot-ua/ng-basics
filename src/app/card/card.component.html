@@ -1,0 +1,45 @@
+<div class="card">
+  <h2 [ngStyle]="{
+    color: card.title.length < 15 ? 'blue' : 'green',
+    fontWeight: card.title.length < 7 ? 'normal' : 'bold'
+  }">Index: {{ index }} | Title: {{ card.title }}</h2>
+
+  <p class="text" [ngClass]="{
+  red: textColor === 'red',
+  green: textColor === 'green',
+  blue: textColor === 'blue'
+  }">{{ card.text }}</p>
+
+  <div>
+    <button (click)="textColor = 'red'">Set Red</button>
+    <button (click)="textColor = 'green'">Set Green</button>
+    <button (click)="textColor = 'blue'">Set Blue</button>
+  </div>
+  <p class="text" [class.red]="textColor === 'red'">Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
+  <p class="text" [class.green]="textColor === 'green'">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet, recusandae!</p>
+  <p class="text" [class.blue]="textColor === 'blue'">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum deleniti fugiat suscipit.</p>
+  <hr />
+
+  <div class="buttons">
+    <button (click)="changeTitle()">Change Title</button>
+    <button (click)="card.title = 'Inline title'">Change Title inline</button>
+  </div>
+  <div>
+    <input  type="text" (input)="inputHandler($event)" [value]="card.title" /><!-- native event-->
+    <input  type="text" #myInput (input)="inputHandler2(myInput.value)" [value]="card.title" />  <!-- two way binding -->
+  </div>
+  <div>
+    <!--<input type="text" [(ngModel)]="title"> -->  <!-- needed FormsModule -->
+    <input type="text" [(ngModel)]="card.title" (ngModelChange)="ChangeHandler()">
+    <em>ChangeHandler() => to console</em>
+  </div>
+  <hr/>
+  <strong>Number: {{ number }}</strong> |
+  Array: <em>{{ array }}</em>  | {{ getInfo() }}
+  <br><pre>Obj: {{ obj | json }}</pre>
+<!--    <img src="{{ imgUrl }}">-->
+  <button [disabled]="disabled">Enable</button>
+  <img [src]="imgUrl"> <!-- binding -->
+
+   Date 'full' : {{ cardDate | date:'full' }}   |  <strong>  Custom: {{ cardDate | date:'dd.MMMM.yyyy HH:mm:ss' }}</strong>
+</div>

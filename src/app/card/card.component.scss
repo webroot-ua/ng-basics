@@ -1,0 +1,50 @@
+.card {
+  padding: .5rem 1rem;
+  border: 2px dashed #aaa;
+  margin-bottom: 1rem;
+
+  h2 {
+    margin-bottom: .5rem;
+    margin-top: 0;
+  }
+
+  button {
+    margin-right: 1rem;
+    margin-bottom: .5rem;
+    margin-top: .5rem;
+  }
+
+  input {
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  img {
+    height: 50px;
+    width: 50px;
+  }
+  hr {
+    margin: .1rem;
+  }
+
+  .text {
+    font-size: .8rem;
+    margin: 0;
+
+    &.red {
+      color: red;
+    }
+    &.green {
+      color: green;
+    }
+    &.blue {
+      color: blue;
+    }
+
+  }
+
+  .buttons {
+    //margin-bottom: .5rem;
+  }
+
+}
